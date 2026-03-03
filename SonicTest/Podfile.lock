@@ -2,14 +2,15 @@ PODS:
   - Sonic (0.0.1)
 
 DEPENDENCIES:
-  - Sonic
   - Sonic (from `../`)
 
 EXTERNAL SOURCES:
   Sonic:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Sonic: 3ee61df21d7aadf28fc442fc73bac0a158e199be
+  Sonic: 719f20ae948cc82b05c0307047f19e4d81b20ff5
 
-COCOAPODS: 0.34.1
+PODFILE CHECKSUM: 84ea308d28b032d2ff3a1dcced5e71176119c4f8
+
+COCOAPODS: 1.16.2
