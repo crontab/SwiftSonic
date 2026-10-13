@@ -288,7 +288,12 @@ float sonicGetPitch(sonicStream stream) { return stream->pitch; }
 
 /* Set the pitch of the stream. */
 void sonicSetPitch(sonicStream stream, float pitch) {
-  stream->pitch = CLAMP(pitch, SONIC_MIN_PITCH_SETTING, SONIC_MAX_PITCH_SETTING);
+  pitch = CLAMP(pitch, SONIC_MIN_PITCH_SETTING, SONIC_MAX_PITCH_SETTING);
+  if (pitch != stream->pitch) {
+    stream->oldRatePosition = 0;
+    stream->newRatePosition = 0;
+  }
+  stream->pitch = pitch;
 }
 
 /* Get the rate of the stream. */
@@ -297,10 +302,12 @@ float sonicGetRate(sonicStream stream) { return stream->rate; }
 /* Set the playback rate of the stream. This scales pitch and speed at the same
    time. */
 void sonicSetRate(sonicStream stream, float rate) {
-  stream->rate = CLAMP(rate, SONIC_MIN_RATE, SONIC_MAX_RATE);
-
-  stream->oldRatePosition = 0;
-  stream->newRatePosition = 0;
+  rate = CLAMP(rate, SONIC_MIN_RATE, SONIC_MAX_RATE);
+  if (rate != stream->rate) {
+    stream->oldRatePosition = 0;
+    stream->newRatePosition = 0;
+  }
+  stream->rate = rate;
 }
 
 /* DEPRECATED.  Get the vocal chord pitch setting. */
