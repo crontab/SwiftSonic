@@ -44,8 +44,13 @@ struct ContentView: View {
             HStack {
                 Text(title)
                 Spacer()
-                Text(value.wrappedValue, format: .number.precision(.fractionLength(2)))
-                    .monospacedDigit()
+                Button {
+                    value.wrappedValue = 1
+                } label: {
+                    Text(value.wrappedValue, format: .number.precision(.fractionLength(2)))
+                        .monospacedDigit()
+                }
+                .buttonStyle(.borderless)
             }
             Slider(value: value, in: range)
         }
