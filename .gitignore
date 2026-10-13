@@ -1,3 +1,9 @@
-SonicTest/Pods/
-SonicTest/SonicTest.xcworkspace/
-SonicTest/SonicTest.xcodeproj/xcuserdata/
+.DS_Store
+Pods/
+/.build
+/build
+/Packages
+*.xcworkspace
+xcuserdata/
+xcshareddata/
+.swiftpm
