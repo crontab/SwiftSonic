@@ -10,12 +10,19 @@ let package = Package(
 
     products: [
         .library(
-            name: "CSonic",
-            targets: ["CSonic"]
+            name: "SwiftSonic",
+            targets: ["SwiftSonic"]
         ),
     ],
 
     targets: [
+
+        // MARK: - SwiftSonic
+
+        .target(
+            name: "SwiftSonic",
+            dependencies: ["CSonic"]
+        ),
 
         // MARK: - CSonic
 
