@@ -709,6 +709,8 @@ int sonicFlushStream(sonicStream stream) {
   memset(stream->inputBuffer + remainingSamples * stream->numChannels, 0,
          2 * maxRequired * sizeof(short) * stream->numChannels);
   stream->numInputSamples += 2 * maxRequired;
+  /* Count the silence's play time too, or the speed works out several times too fast for the last input */
+  stream->inputPlayTime += 2 * maxRequired * stream->samplePeriod / speed;
   if (!sonicWriteShortToStream(stream, NULL, 0)) {
     return 0;
   }
